@@ -7,15 +7,18 @@ module.exports = {
     devtool: 'inline-source-map',
     devServer: {
         static: './dist',
+        watchFiles: './src/template.html',
+        hot: true,
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'Development',
+            template: './src/template.html',
+            filename: 'template.html',
         }),
     ],
     output: {
         filename: 'bundle.js',
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'dist/'),
         clean: true,
     },
     module: {
