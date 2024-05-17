@@ -1,6 +1,6 @@
 import { projectCreator } from "./constructors/project";
 import { getProjects } from "./data/get-projects";
-import { saveProjects } from "./data/storage";
+import { deleteProject, loadProjects, saveProject } from "./data/storage";
 import displayAllProjects from "./displays/display-all-projects";
 import { displayForm } from "./displays/display-form";
 import { displayProject } from "./displays/display-project";
@@ -11,8 +11,11 @@ import todoForm from "./forms/todo-form";
 const getLinks = () => {
 
     const links = document.querySelectorAll('.link');
+    // links.forEach(link => {
+    //     console.log(link)
+    // })
 
-    const projects = getProjects();
+    let projects = loadProjects();
 
     links.forEach(link => {
         let linkID = link.getAttribute('id')
@@ -36,30 +39,38 @@ const getLinks = () => {
                 console.log('submit clicked');
                 e.preventDefault();
 
-                const name = getProjectValues().name;
-                const desc = getProjectValues().desc;
-                const newProject = projectCreator(name, desc);
-                projects.push(newProject);
-                saveProjects();
+                // const name = getProjectValues().name;
+                // const desc = getProjectValues().desc;
+                // const newProject = projectCreator(name, desc);
+                // projects.push(newProject);
+                saveProject();
 
                 let modal = document.querySelector('dialog');
                 modal.remove();
 
                 displayAllProjects();
-                displayProject(newProject.name);
+                // displayProject();
             }
             //  cancel form links
             if (linkClass.includes('cancel')) {
                 let modal = document.querySelector('dialog');
                 modal.remove();
-                console.log('modal removed')
                 displayAllProjects();
             }
             // open existing proj
-            // if (linkClass.includes('project')) {
-            //     displayProject(linkID)
-            // }
+            if (linkClass.includes('targeted-project')) {
+                console.log(`project clicked`)
+                displayProject(linkID)
+            }
+            // delete project
+            if (linkClass.includes('delete-project')) {
+                deleteProject(linkID);
 
+                let modal = document.querySelector('dialog');
+                modal.remove();
+  
+                displayAllProjects();
+            }
         })
     })
 }

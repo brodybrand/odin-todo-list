@@ -1,25 +1,32 @@
-import { getProjects } from "./get-projects";
+import { projectCreator } from "../constructors/project";
+import { getProjectValues } from "../forms/project-form";
 
-let projects = getProjects();
+let projects = [
+    {name: 'test 1', description: 'desc test 1'},
+    {name: 'test 2', description: 'desc test 2'},
+    {name: 'test 3', description: 'desc test 3'}
+]
 
-const saveProjects = () => {
-    localStorage.clear();
-
-    projects.forEach((project, index) => {
-        localStorage.setItem(`project_${index}`, JSON.stringify(project));
-    })
+const saveProject = () => {
+    const name = getProjectValues().name
+    const desc = getProjectValues().desc
+    const newProject = projectCreator(name, desc)
+    projects.push(newProject)
 }
 
 const loadProjects = () => {
-    for (let i=0; i < localStorage.length; i++) {
-        const key = localStorage.key(i);
-
-        if (key.startsWith('project_')) {
-            const project = JSON.parse(localStorage.getItem(key));
-            projects.push(project)
-        }
+    for (let project in projects) {
+        let currentProject = projects[project];
+        localStorage.setItem(`project__${project}`, JSON.stringify(currentProject));
     }
+
     return projects;
 }
 
-export { saveProjects, loadProjects };
+const deleteProject = (targetName) => {
+    let targetProject = projects.filter(proj => proj.name === targetName)[0];
+    let index = projects.indexOf(targetProject);
+    projects = [...projects.slice(0, index), ...projects.slice(index+1)]
+}
+
+export { saveProject, loadProjects, deleteProject}

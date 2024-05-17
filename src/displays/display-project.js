@@ -1,11 +1,12 @@
 import { getProjects } from "../data/get-projects";
 import projects from "../data/projects";
+import { loadProjects } from "../data/storage";
 import getLinks from "../get-links";
 import { clearModal } from "./clear-content";
 import { closeModal } from "./modal-close";
 
 const displayProject = (projectName) => {
-    const projects = getProjects();
+    const projects = loadProjects();
     // define target project and todos
     let project = projects.filter(project => project.name === projectName)[0]
     // let todos = project.todoLists
@@ -23,9 +24,15 @@ const displayProject = (projectName) => {
     projectModal.appendChild(cancel);
     
     // project header
-    let projectHeader = document.createElement('h1');
+    let projectHeader = document.createElement('h2');
     projectHeader.textContent = project.name;
     projectModal.appendChild(projectHeader)
+
+    // project desc
+    let projectDesc = document.createElement('div');
+    projectDesc.setAttribute('class', 'project-desc');
+    projectDesc.textContent = `Desc: ${project.description}`
+    projectModal.appendChild(projectDesc);
 
 
     // wrapper for project todos
@@ -48,6 +55,15 @@ const displayProject = (projectName) => {
     //     }
     // todo content to project modal
     projectModal.appendChild(todosWrapper)
+
+    // delete project
+    let deleteProject = document.createElement('button');
+    Object.assign(deleteProject, {
+        id: project.name,
+        className: 'delete-project link',
+        textContent: 'Delete Project'
+    });
+    projectModal.appendChild(deleteProject);
 
     getLinks();
     // }
