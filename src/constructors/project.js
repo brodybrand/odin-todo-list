@@ -1,11 +1,19 @@
 const Project = (name, description) => {
-    const name = name;
-    const todoLists = [];
-    const description = description
+    this.name = name;
+    // this.todoLists = [];
+    this.description = description
 
-    const addTodo = (todo) => {
-        todoLists.push(todo);
+    // const addTodo = (todo) => {
+    //     todoLists.push(todo);
+    // }
+}
+
+const projectCreator = (name, description) => {
+    return {
+        name: name,
+        description: description,
+        // todoLists: todoLists
     }
 }
 
-export default Project;
+export { Project, projectCreator };

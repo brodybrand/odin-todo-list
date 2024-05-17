@@ -1,9 +1,11 @@
+import getLinks from "../get-links";
+
 const closeModal = (modal) => {
 
     let cancel = document.createElement('button');
 
     Object.assign(cancel, {
-        className: 'cancel',
+        className: 'cancel link',
         type: 'reset',
         textContent: 'X',
         id: 'dialog-cancel'
@@ -12,6 +14,7 @@ const closeModal = (modal) => {
     // close modal on X/Cancel btn
     cancel.addEventListener('click', () => {
         modal.close()
+        getLinks();
     });
 
     return cancel

@@ -79,9 +79,11 @@ const todoForm = () => {
             form.appendChild(priority);
         }
     }
+    // submit
     let submit = document.createElement('button');
     Object.assign(submit, {
-        id: 'name',
+        id: 'todo-submit',
+        className: 'link',
         textContent: 'Submit'
     })
     form.appendChild(submit);

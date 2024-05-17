@@ -1,5 +1,6 @@
-import projectForm from "../forms/project-form";
-import todoForm from "../forms/todo-form";
+import getLinks from "../get-links";
+import { clearModal } from "./clear-content";
+import displayAllProjects from "./display-all-projects";
 import { closeModal } from "./modal-close";
 
 const displayForm = (form) => {
@@ -10,10 +11,15 @@ const displayForm = (form) => {
     formModal.setAttribute('open', true);
     content.appendChild(formModal);
 
-    let cancel = closeModal(formModal);
+    // let cancel = closeModal(formModal);
+    let cancel = document.createElement('button')
+    cancel.setAttribute('class', 'cancel-btn link')
+    cancel.textContent = 'X'
     formModal.appendChild(cancel);
 
     formModal.appendChild(form);
+
+    getLinks();
 }
 
 export { displayForm };

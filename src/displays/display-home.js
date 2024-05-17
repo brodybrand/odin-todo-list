@@ -1,4 +1,5 @@
 import projects from "../data/projects";
+import displayAllProjects from "./display-all-projects";
 import displayForm from "./display-form";
 
 const displayHome = () => {
@@ -25,36 +26,7 @@ const displayHome = () => {
 
 
     // display projects
-    for (let project in projects) {
-        let currentProject = projects[project];
-
-        let projectDiv = document.createElement('div');
-        projectDiv.setAttribute('class', 'project link');
-        projectDiv.setAttribute('id', currentProject.name);
-        projectDiv.textContent = currentProject.name;
-
-        content.appendChild(projectDiv);
-
-        // display todos
-        // for (let todo in currentProject.todoLists) {
-        //     let currentTodo = currentProject.todoLists[todo];
-
-        //     let todoDiv = document.createElement('div');
-        //     todoDiv.setAttribute('class', 'todo');
-
-        //     projectDiv.appendChild(todoDiv);
-
-        //     for (let todoItem in currentTodo) {
-        //         let currentTodoItem = currentTodo[todoItem];
-
-        //         let todoItemDiv = document.createElement('div');
-        //         todoItemDiv.setAttribute('class', currentTodoItem)
-        //         todoItemDiv.textContent = currentTodoItem;
-
-        //         todoDiv.appendChild(todoItemDiv)
-        //     }
-        // }
-    }
+    displayAllProjects();
 }
 
 export default displayHome
