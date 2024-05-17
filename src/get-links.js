@@ -1,9 +1,9 @@
-import { deleteProject, saveProject } from "./data/storage";
+import { deleteProject, saveProject, saveTodo } from "./data/storage";
 import displayAllProjects from "./displays/display-all-projects";
 import { displayForm } from "./displays/display-form";
 import { displayProject } from "./displays/display-project";
-import { projectForm } from "./forms/project-form";
-import {todoForm } from "./forms/todo-form";
+import { getProjectValues, projectForm } from "./forms/project-form";
+import {getTodoValues, todoForm } from "./forms/todo-form";
 
 const getLinks = () => {
 
@@ -27,19 +27,27 @@ const getLinks = () => {
             }
             // new todo submit
             if (linkID == 'todo-submit') {
+                let targetProject = getTodoValues().project
 
+                e.preventDefault();
+                saveTodo();
+                
+                let modal = document.querySelector('dialog');
+                modal.remove();
+
+                displayProject(targetProject);
             }
             // new project submit 
             if (linkClass.includes('project-submit')) {
-                console.log('submit clicked');
+                let targetProject = getProjectValues().name
+
                 e.preventDefault();
                 saveProject();
 
                 let modal = document.querySelector('dialog');
                 modal.remove();
 
-                displayAllProjects();
-                // displayProject();
+                displayProject(targetProject);
             }
             //  cancel form links
             if (linkClass.includes('cancel')) {

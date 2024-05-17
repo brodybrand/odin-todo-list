@@ -36,6 +36,12 @@ const displayProject = (projectName) => {
     // wrapper for project todos
     let todosWrapper = document.createElement('div');
     todosWrapper.setAttribute('class', 'todos-wrapper');
+
+    let addTodo = document.createElement('button');
+    addTodo.setAttribute('class', 'link')
+    addTodo.setAttribute('id', 'new-todo-btn')
+    addTodo.textContent = 'Add Todo'
+    todosWrapper.appendChild(addTodo);
     
     // add todo items to display
     const todos = loadTodos();

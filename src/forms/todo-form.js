@@ -1,4 +1,4 @@
-import projects from "../data/projects";
+import { loadProjects } from "../data/storage";
 
 const todoForm = () => {
 
@@ -28,7 +28,8 @@ const todoForm = () => {
             form.appendChild(project);
 
             // add existing projects to dropdown
-            console.log(projects)
+            let projects = loadProjects();
+            
             for (let i in projects) {
                 let opt = document.createElement('option');
                 Object.assign(opt, {
