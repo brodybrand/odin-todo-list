@@ -15,9 +15,9 @@ const saveProject = () => {
 }
 
 const loadProjects = () => {
-    for (let project in projects) {
-        let currentProject = projects[project];
-        localStorage.setItem(`project__${project}`, JSON.stringify(currentProject));
+    for (let i=0; i<projects.length; i++) {
+        let currentProject = projects[i];
+        localStorage.setItem(`project__${i}`, JSON.stringify(currentProject));
     }
 
     return projects;

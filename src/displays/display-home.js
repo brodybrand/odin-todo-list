@@ -32,7 +32,7 @@ const displayHome = () => {
 
     // display projects
     displayAllProjects();
-    getLinks();
+    
 }
 
 export default displayHome

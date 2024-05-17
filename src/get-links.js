@@ -15,8 +15,6 @@ const getLinks = () => {
     //     console.log(link)
     // })
 
-    let projects = loadProjects();
-
     links.forEach(link => {
         let linkID = link.getAttribute('id')
         let linkClass = link.getAttribute('class')
@@ -38,11 +36,6 @@ const getLinks = () => {
             if (linkClass.includes('project-submit')) {
                 console.log('submit clicked');
                 e.preventDefault();
-
-                // const name = getProjectValues().name;
-                // const desc = getProjectValues().desc;
-                // const newProject = projectCreator(name, desc);
-                // projects.push(newProject);
                 saveProject();
 
                 let modal = document.querySelector('dialog');
