@@ -1,9 +1,6 @@
-import { getProjects } from "../data/get-projects";
-import projects from "../data/projects";
 import { loadProjects } from "../data/storage";
 import getLinks from "../get-links";
-import { clearModal } from "./clear-content";
-import { closeModal } from "./modal-close";
+
 
 const displayProject = (projectName) => {
     const projects = loadProjects();

@@ -1,11 +1,8 @@
-import { projectCreator } from "./constructors/project";
-import { getProjects } from "./data/get-projects";
-import { deleteProject, loadProjects, saveProject } from "./data/storage";
+import { deleteProject, saveProject } from "./data/storage";
 import displayAllProjects from "./displays/display-all-projects";
 import { displayForm } from "./displays/display-form";
 import { displayProject } from "./displays/display-project";
-import { closeModal } from "./displays/modal-close";
-import { projectForm, getProjectValues } from "./forms/project-form";
+import { projectForm } from "./forms/project-form";
 import todoForm from "./forms/todo-form";
 
 const getLinks = () => {

@@ -1,7 +1,5 @@
 import getLinks from "../get-links";
 import { clearModal } from "./clear-content";
-import displayAllProjects from "./display-all-projects";
-import { closeModal } from "./modal-close";
 
 const displayForm = (form) => {
 

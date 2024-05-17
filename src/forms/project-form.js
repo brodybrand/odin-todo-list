@@ -1,5 +1,3 @@
-import getLinks from "../get-links";
-
 const projectForm = () => {
 
     let form = document.createElement('form');

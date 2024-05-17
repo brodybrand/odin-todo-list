@@ -1,7 +1,5 @@
-import { getProjects } from "../data/get-projects";
-import { loadProjects, saveProjects } from "../data/storage";
-import displayForm from "./display-form";
-import { clearContent, clearProjects } from "./clear-content";
+import { loadProjects } from "../data/storage";
+import { clearProjects } from "./clear-content";
 import getLinks from "../get-links";
 
 const displayAllProjects = () => {

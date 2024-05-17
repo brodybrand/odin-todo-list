@@ -1,12 +1,14 @@
-import projects from "../data/projects";
-import getLinks from "../get-links";
 import displayAllProjects from "./display-all-projects";
-import displayForm from "./display-form";
 
 const displayHome = () => {
 
     const content = document.querySelector('#content');
     
+    // header
+    let homeHeader = document.createElement('h1');
+    homeHeader.textContent = 'Home'
+    content.appendChild(homeHeader)
+
     // new project
     let newProjBtn = document.createElement('button')
     Object.assign(newProjBtn, {
@@ -25,14 +27,9 @@ const displayHome = () => {
     });
     content.appendChild(newTodoBtn)
 
-    // header
-    let homeHeader = document.createElement('h1');
-    homeHeader.textContent = 'Home'
-    content.appendChild(homeHeader)
-
     // display projects
     displayAllProjects();
-    
+
 }
 
 export default displayHome
