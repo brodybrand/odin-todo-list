@@ -4,6 +4,10 @@ import displayAllProjects from "./display-all-projects";
 import { closeModal } from "./modal-close";
 
 const displayForm = (form) => {
+
+    if (document.querySelector('dialog')) {
+        clearModal();
+    }
     
     const content = document.querySelector('#content');
 
@@ -13,7 +17,7 @@ const displayForm = (form) => {
 
     // let cancel = closeModal(formModal);
     let cancel = document.createElement('button')
-    cancel.setAttribute('class', 'cancel-btn link')
+    cancel.setAttribute('class', 'cancel link')
     cancel.textContent = 'X'
     formModal.appendChild(cancel);
 

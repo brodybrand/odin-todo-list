@@ -17,7 +17,9 @@ const displayProject = (projectName) => {
     projectModal.setAttribute('open', true);
     content.appendChild(projectModal)
 
-    let cancel = closeModal(projectModal);
+    let cancel = document.createElement('button')
+    cancel.setAttribute('class', 'cancel link')
+    cancel.textContent = 'X'
     projectModal.appendChild(cancel);
     
     // project header

@@ -1,14 +1,13 @@
 const clearContent = () => {
-    const content = document.querySelector('#content')
-
+    const content = document.querySelector('#content');
     content.innerHTML = '';
 }
 
 const clearProjects = () => {
     const projects = document.querySelector('.projects-wrapper');
-    // if (projects.innerHTML) {
-    //     projects.innerHTML = '';
-    // }
+    if (projects) {
+        projects.remove();
+    }
 }
 
 const clearModal = () => {

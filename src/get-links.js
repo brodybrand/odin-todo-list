@@ -1,6 +1,7 @@
 import { projectCreator } from "./constructors/project";
 import { getProjects } from "./data/get-projects";
 import { saveProjects } from "./data/storage";
+import displayAllProjects from "./displays/display-all-projects";
 import { displayForm } from "./displays/display-form";
 import { displayProject } from "./displays/display-project";
 import { closeModal } from "./displays/modal-close";
@@ -44,14 +45,15 @@ const getLinks = () => {
                 let modal = document.querySelector('dialog');
                 modal.remove();
 
-                console.log(newProject.name)
+                displayAllProjects();
                 displayProject(newProject.name);
             }
-            //  cancel close links
-            if (linkClass.includes('cancel-btn')) {
+            //  cancel form links
+            if (linkClass.includes('cancel')) {
                 let modal = document.querySelector('dialog');
                 modal.remove();
                 console.log('modal removed')
+                displayAllProjects();
             }
             // open existing proj
             // if (linkClass.includes('project')) {

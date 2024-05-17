@@ -42,22 +42,8 @@ const projectForm = () => {
         className: 'project-submit link',
         textContent: 'Submit'
     })
-    // submit.addEventListener('click', (e) => {
-    //     e.preventDefault();
-    //     const newProject = projectCreator(
-    //         projectName.value, 
-    //         projectDesc.value
-    //     );
-
-    //     let projects = getProjects();
-    //     projects.push(newProject)
-    //     saveProjects();
-    //     closeModal()
-    // })
 
     form.appendChild(submit);
-
-    getLinks();
 
     return form;
 }

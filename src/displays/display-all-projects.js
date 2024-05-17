@@ -1,21 +1,26 @@
 import { getProjects } from "../data/get-projects";
-import { loadProjects } from "../data/storage";
+import { loadProjects, saveProjects } from "../data/storage";
 import displayForm from "./display-form";
 import { clearContent, clearProjects } from "./clear-content";
+import getLinks from "../get-links";
 
 const displayAllProjects = () => {
+    // let projects = getProjects();
     let projects = getProjects();
+
+    clearProjects();
 
     let content = document.querySelector('#content');
 
     let projectsWrapper = document.createElement('div');
     projectsWrapper.setAttribute('class', 'projects-wrapper');
 
-    clearProjects();
+    let projectsHeader = document.createElement('h2');
+    projectsHeader.textContent = 'Projects';
+    projectsWrapper.appendChild(projectsHeader);
 
     for (let i=0; i<projects.length; i++) {
         let currentProject = projects[i];
-        console.log(`display-all-projects ${currentProject.name}`)
 
         let projectDiv = document.createElement('div');
         projectDiv.setAttribute('class', 'project link');
@@ -26,6 +31,8 @@ const displayAllProjects = () => {
     }
 
     content.appendChild(projectsWrapper);
+
+    getLinks();
 }
 
 export default displayAllProjects;

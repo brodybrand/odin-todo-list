@@ -1,4 +1,3 @@
-import displayAllProjects from "../displays/display-all-projects";
 import { getProjects } from "./get-projects";
 
 let projects = getProjects();
@@ -18,9 +17,9 @@ const loadProjects = () => {
         if (key.startsWith('project_')) {
             const project = JSON.parse(localStorage.getItem(key));
             projects.push(project)
-            displayAllProjects();
         }
     }
+    return projects;
 }
 
-export { saveProjects, loadProjects};
+export { saveProjects, loadProjects };

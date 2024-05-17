@@ -1,4 +1,5 @@
 import projects from "../data/projects";
+import getLinks from "../get-links";
 import displayAllProjects from "./display-all-projects";
 import displayForm from "./display-form";
 
@@ -24,9 +25,14 @@ const displayHome = () => {
     });
     content.appendChild(newTodoBtn)
 
+    // header
+    let homeHeader = document.createElement('h1');
+    homeHeader.textContent = 'Home'
+    content.appendChild(homeHeader)
 
     // display projects
     displayAllProjects();
+    getLinks();
 }
 
 export default displayHome
