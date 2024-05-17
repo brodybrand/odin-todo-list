@@ -3,7 +3,7 @@ import displayAllProjects from "./displays/display-all-projects";
 import { displayForm } from "./displays/display-form";
 import { displayProject } from "./displays/display-project";
 import { projectForm } from "./forms/project-form";
-import todoForm from "./forms/todo-form";
+import {todoForm } from "./forms/todo-form";
 
 const getLinks = () => {
 

@@ -91,4 +91,23 @@ const todoForm = () => {
     return form;
 }
 
-export default todoForm;
+const getTodoValues = () => {
+    let form = document.querySelector('.todo-form');
+
+    let todoProject = form.querySelector('#project').value;
+    let todoTitle = form.querySelector('#title').value;
+    let todoDesc = form.querySelector('#desc').value;
+    let todoDue = form.querySelector('#due-date').value;
+    let todoPriority = form.querySelector('#priority').value;
+    let todoComplete = 0;
+
+    return {
+        project: todoProject,
+        title: todoTitle,
+        description: todoDesc, 
+        dueDate: todoDue,
+        priority: todoPriority, 
+        completion: todoComplete}
+}
+
+export { todoForm, getTodoValues };

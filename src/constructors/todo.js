@@ -1,4 +1,5 @@
-const Todo = (title, description, dueDate, priority, completion) => {
+const Todo = (project, title, description, dueDate, priority, completion) => {
+    this.project = project,
     this.title = title,
     this.description = description,
     this.dueDate = dueDate,
@@ -6,4 +7,15 @@ const Todo = (title, description, dueDate, priority, completion) => {
     this.completion = completion
 }
 
-export default Todo
+const todoCreator = (project, title, description, dueDate, priority, completion) => {
+    return {
+        project: project,
+        title: title,
+        description: description,
+        dueDate: dueDate,
+        priority: priority,
+        completion: completion
+    }
+}
+
+export {todoCreator}
